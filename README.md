@@ -10,5 +10,3 @@ Credits for the icons  :
 - https://www.flaticon.com/free-icon/making-love_2740898
 - https://www.flaticon.com/free-icon/violence_16886640
 - https://www.flaticon.com/free-icon/movement_9922714#
-
-git init . && git add . && git commit -m "first commit"
