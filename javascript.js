@@ -6,6 +6,10 @@ const poop = document.getElementById("POOP") ;
 const humanScoreDisplay = document.getElementById("human-score-box") ;
 const computerScoreDisplay = document.getElementById("computer-score-box") ;
 const roundResult = document.getElementById("round-result") ;
+const endGameText = document.querySelector('.end-game-text') ;
+const endGameDiv = document.getElementById("invisible") ;
+const endGameButton = document.getElementById("refresh") ;
+
 let humanScore = 0 ;
 let computerScore = 0 ;
 
@@ -21,33 +25,46 @@ function getComputerChoice() {
   }
 }
 
-function playRound(humanChoice, computerChoice) {
-        
-        // playRound core
-        if (humanChoice === computerChoice) {
-            roundResult.textContent = `That's a tie. You both chose ${computerChoice} !` ;
-        }
-        
-        else if (
-        (humanChoice === 'SEX' && computerChoice === 'POOP') ||
-        (humanChoice === 'POOP' && computerChoice === 'VIOLENCE') ||
-        (humanChoice === 'VIOLENCE' && computerChoice === 'SEX') ) {
-            humanScore++ ;
-            roundResult.textContent = `Take that. ${humanChoice}  always beats ${computerChoice} !` ;
-        }
+function endGame() {
+    if (humanScore === 5 || computerScore === 5) {
+        sex.setAttribute('disabled', '');
+        violence.setAttribute('disabled', '');
+        poop.setAttribute('disabled', '');
 
-        else {
-            computerScore++ ;
-            roundResult.textContent = `Life's hard. Never forget that ${computerChoice} beats ${humanChoice} !` ;
-        }
-        
-        humanScoreDisplay.textContent = `${humanScore}`;
-        computerScoreDisplay.textContent = `${computerScore}`;
+    if (humanScore > computerScore) {
+        endGameText.textContent = "Easy life" ;
+    } else {
+        endGameText.textContent = "You loser" ;
+
+    endGameDiv.style.visibility = 'visible';
+    }}}
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        roundResult.textContent = `That's a tie. You both chose ${computerChoice} !` ;
+    }
+    
+    else if (
+    (humanChoice === 'SEX' && computerChoice === 'POOP') ||
+    (humanChoice === 'POOP' && computerChoice === 'VIOLENCE') ||
+    (humanChoice === 'VIOLENCE' && computerChoice === 'SEX') ) {
+        humanScore++ ;
+        roundResult.textContent = `Take that. ${humanChoice}  always beats ${computerChoice} !` ;
+    }
+
+    else {
+        computerScore++ ;
+        roundResult.textContent = `Life's hard. Never forget that ${computerChoice} beats ${humanChoice} !` ;
+    }
+    
+    humanScoreDisplay.textContent = `${humanScore}`;
+    computerScoreDisplay.textContent = `${computerScore}`;
+
+    endGame()
     }
 
 // click events on buttons
 sex.addEventListener('click', () => playRound(SEX.id , getComputerChoice()));
 violence.addEventListener('click', () => playRound(VIOLENCE.id , getComputerChoice()));
 poop.addEventListener('click', () => playRound(POOP.id , getComputerChoice()));
-
-// Alert if score is 5 and ask for regame 
+endGameButton.addEventListener('click', () => window.location.reload(true)) ;
