@@ -33,12 +33,12 @@ function endGame() {
 
     if (humanScore > computerScore) {
         endGameText.textContent = "Easy life" ;
+        endGameDiv.style.visibility = 'visible';
     } 
     else {
         endGameText.textContent = "You loser" ;
-
+        endGameDiv.style.visibility = 'visible';
     }
-    endGameDiv.style.visibility = 'visible';
     }}
 
 function playRound(humanChoice, computerChoice) {
