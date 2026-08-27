@@ -47,9 +47,9 @@ function playRound(humanChoice, computerChoice) {
     }
     
     else if (
-    (humanChoice === 'SEX' && computerChoice === 'POOP') ||
-    (humanChoice === 'POOP' && computerChoice === 'VIOLENCE') ||
-    (humanChoice === 'VIOLENCE' && computerChoice === 'SEX') ) {
+    (humanChoice === 'SEX' && computerChoice === 'VIOLENCE') ||
+    (humanChoice === 'VIOLENCE' && computerChoice === 'POOP') ||
+    (humanChoice === 'POOP' && computerChoice === 'SEX') ) {
         humanScore++ ;
         roundResult.textContent = `Take that. ${humanChoice}  always beats ${computerChoice} !` ;
     }
