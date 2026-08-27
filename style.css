@@ -7,6 +7,14 @@
   padding: 40px 0px;
 }
 
+h1 {
+  margin : 0px ;
+}
+
+a {
+  color:black;
+}
+
 .title {
   font-size: 32px;
 }
